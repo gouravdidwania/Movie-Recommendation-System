@@ -12,7 +12,7 @@
 </p>
 
 
-**Link ---> [Movie Recommender System](https://movie-recommender-system-0.herokuapp.com/)**
+**Link for the Website ---> [Movie Recommender System](https://movie-recommender-system-0.herokuapp.com/)**
 
 
 <!-- TABLE OF CONTENTS -->
@@ -66,20 +66,18 @@ Recommender systems usually make use of either or both collaborative filtering a
 
 **Why Recommendation Systems?**
 
-– They help the user find items of their interest
-– Helps the item provider to deliver their items to the right user
-  – To identify the most relevant products for each user
-  – Showcase personalised content to each user
-  – Suggest top offers and discounts to the right user
-– Websites can improve user-engagement
-– It increases revenues for business through increased consumption
+- They help the user find items of their interest
+- Helps the item provider to deliver their items to the right user
+	- To identify the most relevant products for each user
+	- Showcase personalised content to each user
+	- Suggest top offers and discounts to the right user
+- Websites can improve user-engagement
+- It increases revenues for business through increased consumption
 
 <!-- PROBLEM STATEMENT -->
 ## Problem Statement
 
-The overall aim of this process is to build a content based model which can recommend movied based on the imput movie choice of user.
-
-Insights from this can be used to develop systems for big multimedia and OTT platform to give a better viewing expeience to the users. 
+The overall aim of this process is to build a content based model which can recommend movied based on the imput movie choice of user. Insights from this can be used to develop systems for big multimedia and OTT platform to give a better viewing expeience to the users. 
 
 <!-- DATA OVERVIEW -->
 ## Data Overview
@@ -116,11 +114,15 @@ Let’s look at the data. Movies Dataset:
 
 ![image](https://user-images.githubusercontent.com/86877457/132911620-b62712a0-b97e-43e6-a08c-2a3731b4c51b.png)
 
+**INFO**
+
 ![image](https://user-images.githubusercontent.com/86877457/132911968-23a6e6d3-8bfa-4c43-8584-12a14d7753d7.png)
 
 Credits Dataset:
 
 ![image](https://user-images.githubusercontent.com/86877457/132911706-5b6186e2-3c2d-438a-9772-26b37ebc36cb.png)
+
+**INFO**
 
 ![image](https://user-images.githubusercontent.com/86877457/132912016-8693ffe6-323a-457b-b2e7-0ee938b988ed.png)
 
@@ -248,6 +250,7 @@ I created a fucntion which will compare the cosine similarity score of all the m
   def recommend(movie_user):
     movie_index=df[df.title==movie_user].index.values[0]
     similar_movies=pd.DataFrame(enumerate(similarity_score[movie_index])).drop(0,axis='columns').sort_values(by=1,ascending=False)
+    
     similar_movies['Names']=list(map(lambda x:str(np.squeeze(df[df.index==x['title'].values)),similar_movies.index.values))
     
     similar_movies['id']=list(map(lambda x: int(np.squeeze(df[df.index==x]['id'].values)),similar_movies.index.values))
@@ -267,7 +270,7 @@ For the top 12 movies it matches the the movie id with the TMDB database and ext
 
 Link ---> [Movie Recommender System](https://movie-recommender-system-0.herokuapp.com/)
 
-![image](https://user-images.githubusercontent.com/86877457/132916934-266d1fb7-fa5b-449f-90ea-21811adfe03f.png)
+![image](https://user-images.githubusercontent.com/86877457/132918384-1858f9c5-a86b-4af2-b843-8e31d5bf21b5.png)
 
 <!-- FINAL THOUGHTS -->
 ## Final Thoughts
